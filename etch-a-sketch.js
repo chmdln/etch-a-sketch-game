@@ -13,9 +13,17 @@ function createGrid(n) {
             squareElem.style.borderStyle= 'solid'; 
             squareElem.style.borderWidth= '0.0001px'; 
             squareElem.style.borderColor = 'darkgrey'; 
+            squareElem.className = 'square'; 
             containerElem.appendChild(squareElem);
         }
     }
+
+    const children = document.querySelectorAll('.square'); 
+    children.forEach((child) => {
+        child.addEventListener('mouseover', () => {
+            child.style.backgroundColor = 'black'; 
+        }); 
+    }); 
 }
 
 function openPopup() {
@@ -47,11 +55,11 @@ function submitInput() {
 setSizeButtonElem.addEventListener('click', openPopup); 
 submitButtonElem.addEventListener('click', submitInput); 
 cancelButtonElem.addEventListener('click', closePopup); 
+
 resetSizeButtonElem.addEventListener('click', () => {
     containerElem.innerHTML = ''; 
     createGrid(16);
-}); 
-
+});
 
 createGrid(16); 
 
