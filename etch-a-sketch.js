@@ -2,6 +2,7 @@ const containerElem = document.querySelector('.container');
 const submitButtonElem = document.querySelector('.js-submit-button-popup'); 
 const cancelButtonElem = document.querySelector('.js-cancel-button-popup'); 
 const setSizeButtonElem = document.querySelector('.js-set-size-button'); 
+const resetSizeButtonElem = document.querySelector('.js-reset-button'); 
 
 function createGrid(n) {
     for (let i=0; i<n; i++) {
@@ -33,7 +34,7 @@ function submitInput() {
     userInput.value = ''; 
     userInput.focus(); 
 
-    if (inputValue) {
+    if (inputValue && inputValue > 0 && inputValue <101) {
         containerElem.innerHTML = ''; 
         createGrid(inputValue); 
         closePopup(); // Close the pop-up after submitting
@@ -46,6 +47,10 @@ function submitInput() {
 setSizeButtonElem.addEventListener('click', openPopup); 
 submitButtonElem.addEventListener('click', submitInput); 
 cancelButtonElem.addEventListener('click', closePopup); 
+resetSizeButtonElem.addEventListener('click', () => {
+    containerElem.innerHTML = ''; 
+    createGrid(16);
+}); 
 
 
 createGrid(16); 
