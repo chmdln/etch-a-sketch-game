@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<hmtl lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
@@ -9,12 +9,21 @@
     </head>
     <body>
         <div class="parent">
-            <div class="container">
+            <div class="set-size-button-container">
+                <button  class="js-set-size-button">Set grid size!</button>
+            </div>
+            <div class="container"></div>
+        </div> 
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+              <h3>Enter a grid size (between 1-100):</h3>
+              <input type="number" id="userInput"  min="1" max="100" step="1" required>
+              <button class="js-submit-button-popup">Submit</button>
+              <button class="js-cancel-button-popup">Cancel</button>
             </div>
         </div>
-        
-
-        
+          
         
     </body>
 </hmtl>

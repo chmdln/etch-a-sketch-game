@@ -1,13 +1,54 @@
 const containerElem = document.querySelector('.container'); 
+const submitButtonElem = document.querySelector('.js-submit-button-popup'); 
+const cancelButtonElem = document.querySelector('.js-cancel-button-popup'); 
+const setSizeButtonElem = document.querySelector('.js-set-size-button'); 
 
-for (let i=0; i<16; i++) {
-    for (let j=0; j<16; j++) {
-        let squareElem = document.createElement('div');  
-        squareElem.style.width = `${600/16-1}px`; 
-        squareElem.style.height = `${600/16-1}px`; 
-        squareElem.style.borderStyle= 'solid'; 
-        squareElem.style.borderWidth= '0.0001px'; 
-        squareElem.style.borderColor = 'darkgrey'; 
-        containerElem.appendChild(squareElem);
+function createGrid(n) {
+    for (let i=0; i<n; i++) {
+        for (let j=0; j<n; j++) {
+            let squareElem = document.createElement('div');  
+            squareElem.style.width = `${700/n-1}px`; 
+            squareElem.style.height = `${500/n-1}px`; 
+            squareElem.style.borderStyle= 'solid'; 
+            squareElem.style.borderWidth= '0.0001px'; 
+            squareElem.style.borderColor = 'darkgrey'; 
+            containerElem.appendChild(squareElem);
+        }
     }
 }
+
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+}
+  
+function closePopup() {
+    const userInput = document.getElementById("userInput");
+    userInput.value = ''; 
+    document.getElementById("popup").style.display = "none";
+}
+  
+function submitInput() {
+    const userInput = document.getElementById("userInput");
+    const inputValue = userInput.value; 
+    userInput.value = ''; 
+    userInput.focus(); 
+
+    if (inputValue) {
+        containerElem.innerHTML = ''; 
+        createGrid(inputValue); 
+        closePopup(); // Close the pop-up after submitting
+    } else {
+        alert("Enter a grid size between 1-100");
+        openPopup(); 
+    }
+}
+
+setSizeButtonElem.addEventListener('click', openPopup); 
+submitButtonElem.addEventListener('click', submitInput); 
+cancelButtonElem.addEventListener('click', closePopup); 
+
+
+createGrid(16); 
+
+
+
