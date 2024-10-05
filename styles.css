@@ -21,6 +21,7 @@
 .sketchpad-border {
     display: flex; 
     flex-direction: column;
+    /* justify-content: center; */
     align-items: center;
     background-color: rgb(240, 85, 227, 0.6);
     padding-top: 30px; 
@@ -43,9 +44,23 @@
 }
 
 .set-size-button-container {
-    width: 150px; 
+    display: flex; 
+    justify-content: center;
+    column-gap: 10px; 
+    width: 300px; 
     margin-top: 40px; 
     margin-bottom: 30px; 
+}
+
+.set-button {
+    padding: 10px; 
+    border: .5px solid grey; 
+    border-radius: 6px;
+}
+
+.set-button:hover {
+    border: 2px solid yellow; 
+    box-shadow: 0px 0px 20px 3px rgba(255,255,0, .5);
 }
 
 .container {
