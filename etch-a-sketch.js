@@ -45,7 +45,7 @@ function submitInput() {
     if (inputValue && inputValue > 0 && inputValue <101) {
         containerElem.innerHTML = ''; 
         createGrid(inputValue); 
-        closePopup(); // Close the pop-up after submitting
+        closePopup(); 
     } else {
         alert("Enter a grid size between 1-100");
         openPopup(); 
